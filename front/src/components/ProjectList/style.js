@@ -6,7 +6,6 @@ export const Container = styled.div`
   align-items: center;
   gap: 10px;
   width: 100%;
-  cursor: pointer;
 `;
 
 export const InnerContainer = styled.div`

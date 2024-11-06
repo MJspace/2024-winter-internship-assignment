@@ -4,9 +4,10 @@ export const DELETE_PROJECT = 'DELETE_PROJECT';
 const projectsReducer = (state, action) => {
   switch (action.type) {
     case ADD_PROJECT:
-      return [...state, action.payload]; // 기존 상태에 새로운 프로젝트 추가
+      console.log('Reducer ADD_PROJECT called with:', action.payload);
+      return [...state, action.payload]; // 기존 상태에 새 프로젝트 추가
     case DELETE_PROJECT:
-      return state.filter((project) => project.id !== action.payload); // 프로젝트 삭제
+      return state.filter((project) => project.id !== action.payload); // 삭제
     default:
       return state;
   }

@@ -10,22 +10,31 @@ const ProjectList = () => {
   const initialProjects = JSON.parse(localStorage.getItem('projects')) || [];
   const [projects, dispatch] = useReducer(projectsReducer, initialProjects);
   const [isAdding, setIsAdding] = useState(false);
+  const [recentProject, setRecentProject] = useState(null); // 최근 추가된 프로젝트 저장
   const navigate = useNavigate();
 
   const handleAddProject = (newProject) => {
     addProject(dispatch, newProject);
+    setRecentProject(newProject); // 최근 추가된 프로젝트 저장
     setIsAdding(false);
-
-    navigate(`/projects/${newProject.id}`, { state: newProject });
   };
 
   const handleDeleteProject = (projectId) => {
     deleteProject(dispatch, projectId);
   };
 
+  // 상태 변경 후 로컬스토리지 업데이트
   useEffect(() => {
     localStorage.setItem('projects', JSON.stringify(projects));
   }, [projects]);
+
+  // 최근 추가된 프로젝트로 이동
+  useEffect(() => {
+    if (recentProject) {
+      navigate(`/projects/${recentProject.id}`, { state: recentProject });
+      setRecentProject(null);
+    }
+  }, [projects, recentProject]);
 
   return (
     <p.Container>

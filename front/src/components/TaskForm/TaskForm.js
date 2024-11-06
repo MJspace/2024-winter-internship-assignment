@@ -4,7 +4,7 @@ import * as f from './style';
 const TaskForm = ({ onSave, onCancel, task }) => {
   const [title, setTitle] = useState(task ? task.title : '');
   const [dueDate, setDueDate] = useState(task ? task.dueDate : '');
-  const [status, setStatus] = useState(task ? task.status : '시작 전');
+  const [status, setStatus] = useState(task ? task.status : '');
 
   useEffect(() => {
     if (task) {
