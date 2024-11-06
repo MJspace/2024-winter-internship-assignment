@@ -2,6 +2,7 @@ import React from 'react';
 import { RecoilRoot } from 'recoil';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
+import ProjectList from './components/ProjectList/ProjectList';
 import ProjectDetail from './pages/ProjectDetailPage/ProjectDetailPage';
 import { useMediaQuery } from 'react-responsive';
 
@@ -22,6 +23,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<MainPage />} />
+              <Route path="/projects" element={<ProjectList />} />
               <Route path="/projects/:id" element={<ProjectDetail />} />
             </Routes>
           </BrowserRouter>

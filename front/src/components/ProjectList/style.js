@@ -35,3 +35,23 @@ export const SpecialtyText = styled.div`
   width: 100%; /* 원하는 고정 너비 설정 */
   white-space: normal; /* 너비를 벗어나면 줄바꿈 */
 `;
+
+export const ProjectContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+`;
+
+export const Button = styled.button`
+  margin-top: 16px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
